@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>JavaScript Events</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    const func = () => {
+        console.log("I love JS");
+    }
+
+    const func1 = () => {
+        document.querySelector('h1').innerHTML = "I Love C++"
+    }
+    setTimeout(func, 5000)
+    const n = setTimeout(func1, 2000)
+
+    document.querySelector('#stop').addEventListener('click', function(){
+        clearTimeout(n)
+        console.log("STOPPED")
+    })
+</script>
+</html>

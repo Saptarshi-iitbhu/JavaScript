@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>JavaScript Events</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    // const num = function(str){
+    //     console.log(str, Date.now());
+    // }
+    // const interval = setInterval(num, 1000, "I love Coding")
+
+    // clearInterval(interval)
+    
+    const randomColor = () => {
+        const hex = "0123456789ABCD";
+        let color = '#';
+        for(let i = 0; i < 6; i++){
+            color += hex[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    };
+
+    let intervalId;
+
+    const startchangingcolor = () =>{
+        intervalId = setInterval(changecolor, 1000)
+        
+        function changecolor(){
+            document.body.style.backgroundColor = randomColor();
+        }
+    };
+
+    const stopchangingcolor = () => {
+        clearInterval(intervalId)
+        intervalId = null;
+    };
+
+    document.querySelector('#start').addEventListener('click', startchangingcolor);
+    document.querySelector('#stop').addEventListener('click', stopchangingcolor);
+
+    // let intervalId = null;
+
+    // // Greeting function
+    // function writing(str) {
+    //     console.log(`Good Morning, ${str}`);
+    // }
+
+    // // Start function
+    // const startwriting = function () {
+    //     if (intervalId === null) {
+    //         intervalId = setInterval(() => writing("Saptarshi"), 1000);
+    //     }
+    // };
+
+    // // Stop function
+    // const stopwriting = function () {
+    //     clearInterval(intervalId);
+    //     intervalId = null;
+    // };
+
+    // // Attach event listeners
+    // document.querySelector('#start').addEventListener('click', startwriting);
+    // document.querySelector('#stop').addEventListener('click', stopwriting);
+</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Start/Stop Greeting</title>
+</head>
+<body>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+
+    <script>
+        let intervalId = null;
+
+        // Greeting function
+        function writing(str) {
+            console.log(`Good Morning, ${str}`);
+        }
+
+        // Start function
+        const startwriting = function () {
+            if (intervalId === null) {
+                intervalId = setInterval(() => writing("Saptarshi"), 1000);
+            }
+        };
+
+        // Stop function
+        const stopwriting = function () {
+            clearInterval(intervalId);
+            intervalId = null;
+        };
+
+        // Attach event listeners
+        document.querySelector('#start').addEventListener('click', startwriting);
+        document.querySelector('#stop').addEventListener('click', stopwriting);
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Learning 2</title>
+</head>
+<body style="background-color: black; color: aliceblue;">
+    <div class="parent">
+        <div class="day">Monday</div>
+        <div class="day">Tueday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+    </div>
+</body>
+<script>
+    const n = document.querySelector('.parent')
+    console.log(n);
+    console.log(n.children); // Accessing all the inner classes inside the parent class. It returns a HTML Collection
+    console.log(n.children[2].innerHTML)
+
+    for (let i = 0; i < n.children.length; i++) {
+        console.log(n.children[i].innerHTML);
+    }
+
+    n.children[0].style.color = "red"
+    n.children[1].style.color = "blue"
+    n.children[2].style.color = "green"
+    n.children[3].style.color = "yellow"
+
+    console.log(n.firstElementChild) // accessing the first child of the parent
+
+    const child = document.querySelector('.day')
+    console.log(child)
+    console.log(child.parentElement) // Accessing the parent class of that particular child class
+    console.log(child.nextElementSibling) // Accessing thr next text with the same class name under that particular parent
+
+
+    console.log("NODES : ", n.childNodes) // Accessing all the child nodes
+
+</script>
+</html>
